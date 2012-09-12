@@ -6,7 +6,8 @@ import Control.Arrow ((>>>), arr, (&&&), (>>^))
 import Control.Category (id)
 import Control.Monad (forM_)
 import Data.Monoid (mempty, mconcat)
-import Data.List (isInfixOf)
+import Data.List (isInfixOf, sortBy)
+import Data.Ord (comparing)
 import Text.Pandoc (Pandoc, HTMLMathMethod(..), WriterOptions(..), 
                     defaultWriterOptions, ParserState)
 import Text.Pandoc.Shared (ObfuscationMethod(..))
@@ -20,7 +21,7 @@ import qualified Text.Blaze.Html5 as H
 import qualified Text.Blaze.Html5.Attributes as A
 import qualified Data.ByteString.Char8 as B
 
-import Hakyll 
+import Hakyll hiding (chronological)
 
 
 articlesPerIndexPage :: Int
@@ -29,6 +30,11 @@ articlesPerIndexPage = 5
 
 main :: IO ()
 main = hakyll $ do
+    -- gotta have a favicon
+    match "favicon.ico" $ do
+        route   idRoute
+        compile copyFileCompiler
+
     -- Read templates.
     match "templates/*" $ compile templateCompiler
     
@@ -194,6 +200,21 @@ addTeaser = arr (copyBodyToField "teaser")
 
 fixResourceUrls'' :: String -> String -> String
 fixResourceUrls'' path = withUrls (\x -> if '/' `elem` x then x else path ++ "/" ++ x)
+
+
+-- | Sort pages chronologically. This function assumes that the pages have a
+-- @year/month/day/title[.extension]@ naming scheme.
+--
+chronological :: [Page String] -> [Page String]
+chronological = reverse . (sortBy $ comparing pageSortKey)
+
+
+-- | Generate a sort key for ordering entries on the index page.
+--
+pageSortKey :: Page String -> String
+pageSortKey pg =  datePart
+  where path = getField "path" pg
+        datePart = joinPath $ take 3 $ drop 1 $ splitDirectories path
 
 
 -- Split list into equal sized sublists.
