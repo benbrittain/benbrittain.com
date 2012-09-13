@@ -100,6 +100,7 @@ footer {
     color: #1F1F1F;
     text-decoration: none;
     font-size: 25px;
+    top: 5px;
 }
 
 #postdate {
@@ -112,7 +113,9 @@ footer {
 
 #post {
     padding-left: 25px;
+    padding-bottom: 25px;
 }
+
 p {
     font-family: Verdana, Geneva, sans-serif;
     color: #1F1F1F;

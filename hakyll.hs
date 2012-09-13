@@ -35,6 +35,13 @@ main = hakyll $ do
         route   idRoute
         compile copyFileCompiler
 
+    match "about.html" $ do
+      route $ setExtension ".html"
+      compile $ pageCompiler
+          >>> addPageTitle 
+          >>> applyTemplateCompiler "templates/default.html"
+          >>> relativizeUrlsCompiler
+
     -- Read templates.
     match "templates/*" $ compile templateCompiler
     
@@ -65,11 +72,6 @@ main = hakyll $ do
         route   idRoute
         compile copyFileCompiler
 
-    -- Static pages and resources.
-    match "static/*" $ do
-      route $ setExtension ".html"
-      compile staticCompiler
-      
     -- Generate index pages
     match "index*.html" $ route idRoute
     metaCompile $ requireAll_ postsPattern
@@ -103,14 +105,6 @@ addPageTitle :: Compiler (Page String) (Page String)
 addPageTitle = (arr (getField "title") &&& id)
                >>> arr (uncurry $ (setField "pagetitle") . ("Ben Brittain | " ++))
 
-
--- | Static page compiler: page title, applies templates.
-staticCompiler :: Compiler Resource (Page String)
-staticCompiler = pageCompiler 
-    >>> addPageTitle
-    >>> applyTemplateCompiler "templates/static.html"
-    >>> applyTemplateCompiler "templates/default.html"
-    >>> relativizeUrlsCompiler
 
 
 -- | Auxiliary compiler: generate a post list from a list of given posts, and
