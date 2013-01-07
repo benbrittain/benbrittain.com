@@ -6,13 +6,13 @@ body {
 #nav ul {
     list-style: none;
     text-align: left;
+    margin:0;
 }
 
 #nav ul li {
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-right: 50px;
-    margin-left: 50px;
+    margin-right: 40px;
 }
 
 #post a {
@@ -61,19 +61,20 @@ body {
     left: 0;
     top: 0;
     bottom: 0;
-    width: 400px;
-    border-right: 8px solid #1F1F1F;
+    width: 350px;
+    border-right: 6px solid rgba(0, 0, 0, 0.5);
     text-align: center;
-    padding:4px;
 }
 
 h1 {
-    font-size:40px;
+    font-size: 46px;
     font-family: 'Monda', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 #content {
-    margin: 28px 0 30px 420px;
+    margin: 28px 0 30px 370px;
 }
 
 footer {
@@ -111,23 +112,33 @@ footer {
     font-size: 25px;
     color: #1F1F1F;
     text-decoration: none;
+    margin: 0;
+    padding: 0;
 }
 
 #postdate {
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     font-family: 'Monda', sans-serif;
     font-size: 16px;
     color: #1F1F1F;
 }
 
 #post {
-    padding-left: 25px;
-    padding-bottom: 25px;
+    padding-top: 10px;
+    padding-bottom: 5px;
 }
 
 p {
     font-family: 'Quicksand', sans-serif;
     font-weight: 400;
     font-size: 18px;
+    margin: 0;
+    padding: 0;
 }
 
+#post img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
