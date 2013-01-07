@@ -12,3 +12,5 @@ bin-release/
 *.o
 *.hi
 .swp
+_site
+_cache

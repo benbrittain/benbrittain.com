@@ -29,7 +29,7 @@ articlesPerIndexPage = 5
 
 
 main :: IO ()
-main = hakyll $ do
+main = hakyllWith config $ do
     -- gotta have a favicon
     match "favicon.ico" $ do
         route   idRoute
@@ -60,6 +60,7 @@ main = hakyll $ do
             >>> pageReadPandocWith defaultHakyllParserState
             >>> arr (fmap (writePandocWith articleWriterOptions))
             >>> addPageTitle >>> addTeaser
+
             >>> applyTemplateCompiler "templates/post.html"
             >>> applyTemplateCompiler "templates/default.html"
             >>> arr (copyBodyToField "description")
@@ -216,3 +217,12 @@ chunk :: Int -> [a] -> [[a]]
 chunk n [] = []
 chunk n xs = ys : chunk n zs
     where (ys,zs) = splitAt n xs
+
+
+config :: HakyllConfiguration
+config = defaultHakyllConfiguration 
+    { deployCommand =   "rsync --checksum -ave 'ssh' \
+                        \_site/* bbrittain_benbrittain@ssh.phx.nearlyfreespeech.net:public"
+    }
+
+
