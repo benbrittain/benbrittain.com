@@ -1,13 +1,3 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-
-# Project property files
-.actionScriptProperties
-.flexProperties
-.settings/
-.project
-
 #haskell ignore!
 *.o
 *.hi
