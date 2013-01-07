@@ -11,6 +11,4 @@ bin-release/
 #haskell ignore!
 *.o
 *.hi
-_cache
-_site
 .swp
