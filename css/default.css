@@ -16,10 +16,8 @@ body {
 }
 
 #post a {
-
     color: #1F1F1F;
     font-size:17px;
-
 }
 
 #nav a {
@@ -71,11 +69,11 @@ body {
 
 h1 {
     font-size:40px;
-    font-family: 'Inconsolata';
+    font-family: 'Monda', sans-serif;
 }
 
 #content {
-    margin: 0 0 30px 420px;
+    margin: 28px 0 30px 420px;
 }
 
 footer {
@@ -87,31 +85,39 @@ footer {
 }
 
 #linkolder {
-    font-family: Verdana, Geneva, sans-serif;
+    font-family: 'Monda', sans-serif;
     color: #1F1F1F;
     font-size: 20px;
 }
 
 #linknewer {
-    font-family: Verdana, Geneva, sans-serif;
+    font-family: 'Monda', sans-serif;
     color: #1F1F1F;
     font-size: 20px;
 }
 
-#posttitle a{
-    font-family: Verdana, Geneva, sans-serif;
+#linkolder a {
     color: #1F1F1F;
     text-decoration: none;
+}
+
+#linknewer a {
+    color: #1F1F1F;
+    text-decoration: none;
+}
+
+#posttitle a{
+    font-family: 'Monda', sans-serif;
     font-size: 25px;
-    top: 5px;
+    color: #1F1F1F;
+    text-decoration: none;
 }
 
 #postdate {
     padding: 0px;
-    font-family: Verdana, Geneva, sans-serif;
-    color: #1F1F1F;
-    font-weight: bold;
+    font-family: 'Monda', sans-serif;
     font-size: 16px;
+    color: #1F1F1F;
 }
 
 #post {
@@ -120,9 +126,8 @@ footer {
 }
 
 p {
-    font-family: Verdana, Geneva, sans-serif;
-    color: #1F1F1F;
-    font-weight: normal;
-    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
 }
 
