@@ -166,6 +166,6 @@ chunk n xs = ys : chunk n zs
 
 config :: HakyllConfiguration
 config = defaultHakyllConfiguration 
-    { deployCommand =   "rsync --checksum -ave 'ssh' \
-                        \_site/* bbrittain_benbrittain@ssh.phx.nearlyfreespeech.net:public"
+    { deployCommand =   "rsync -ave 'ssh' \
+                        \_site/* bbrittain_benbrittain@ssh.phx.nearlyfreespeech.net:/home/public"
     }
