@@ -38,7 +38,7 @@ main = hakyllWith config $ do
     match "about.html" $ do
       route $ setExtension ".html"
       compile $ pageCompiler
-          >>> addPageTitle 
+          >>> addPageTitle
           >>> applyTemplateCompiler "templates/default.html"
           >>> relativizeUrlsCompiler
 
@@ -78,7 +78,7 @@ main = hakyllWith config $ do
 
     match "404.html" $ do
         route idRoute
-        compile $ pageCompiler
+        compile $ readPageCompiler
             >>> applyTemplateCompiler "templates/default.html"
   where
     postsPattern :: Pattern (Page String)

@@ -67,7 +67,7 @@ body {
 }
 
 h1 {
-    font-size: 46px;
+    font-size: 45px;
     font-family: 'Monda', sans-serif;
     margin: 0;
     padding: 0;
@@ -75,6 +75,9 @@ h1 {
 
 #content {
     margin: 28px 0 30px 370px;
+    width:60%;
+    min-width:600px;
+    max-width:1000px;
 }
 
 footer {
@@ -130,15 +133,28 @@ footer {
 }
 
 p {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 18px;
-    margin: 0;
     padding: 0;
 }
 
 #post img {
     display: block;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
+    width: 95%;
+    margin: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-style: solid;
+
 }
+
+IMG.displayed {
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin-right: auto;
+}
+
+
